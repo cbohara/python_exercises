@@ -25,11 +25,3 @@ def test_is_anagram_true_ignore_punctuation():
 
 def test_is_anagram_false_ignore_punctuation():
 	assert is_anagram("Happy New Years!", "Happy Birthday!!") == False
-
-@pytest.mark.skip(reason="need to figure out how to deal with latin characters")
-def test_is_anagram_true_ignore_latin_char():
-	assert is_anagram("cardiografía", "radiográfica") == True
-
-@pytest.mark.skip(reason="need to figure out how to deal with latin characters")
-def test_is_anagram_true_ignore_latin_char():
-	assert is_anagram("joyería", "radiográfica") == False
