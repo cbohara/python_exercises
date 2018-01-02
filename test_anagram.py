@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import pytest
+from anagram import is_anagram
 
 def test_is_anagram_true_simple():
 	assert is_anagram("tea", "eat") == True
