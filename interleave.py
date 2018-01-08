@@ -11,7 +11,3 @@ def interleave(*iterables):
 			except IndexError:
 				continue
 	return result
-
-list1 = [1, 2, 3]
-list2 = [4, 5, 6, 7, 8]
-print(interleave(list1, list2))
