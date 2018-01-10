@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
 def interleave(*iterables):
-	iterables = [list(x) for x in iterables]
-	longest_iterable = sorted(iterables, reverse=True)[0]
-	result = []
-	for x in range(len(longest_iterable)):
-		for iterable in iterables:
+	iterators = [iter(i) for i in iterables]
+	while iterators:
+		for iterator in iterators:
 			try:
-				result.append(iterable[x])
-			except IndexError:
-				continue
-	return result
+				yield next(iterator)
+			except StopIteration:
+				iterators.remove(iterator)
