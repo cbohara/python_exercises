@@ -9,7 +9,7 @@ def test_nothing_strip():
 	assert lstrip([1, 2, 3], 0) == [1, 2, 3]
 
 def test_string():
-	assert lstrip('  hello', ' ') == 'hello'
+	assert lstrip('  hello', ' ') == ['h', 'e', 'l', 'l', 'o']
 
 def test_empty_iterable():
 	assert lstrip([], 1) == []
