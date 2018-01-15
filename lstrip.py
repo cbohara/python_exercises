@@ -1,18 +1,6 @@
 #!/usr/bin/env python3
+from itertools import dropwhile
 
-def lstrip(iterable, obj):
-	start = 0
-	iterable = list(iterable)
-	for index, value in enumerate(iterable):
-		if value == obj:
-			continue
-		else:
-			start = index
-			break
-	try:
-		if start == 0 and iterable[0] == obj:
-			return []
-	except IndexError:
-		return []
-	else:
-		return iterable[start:]
+def lstrip(iterable, strip_value):
+	def is_stripped_value(value): return value == strip_value
+	return list(dropwhile(is_stripped_value, iterable))
