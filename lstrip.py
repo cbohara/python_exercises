@@ -3,4 +3,4 @@ from itertools import dropwhile
 
 def lstrip(iterable, strip_value):
 	def is_stripped_value(value): return value == strip_value
-	return list(dropwhile(is_stripped_value, iterable))
+	return dropwhile(is_stripped_value, iterable)
