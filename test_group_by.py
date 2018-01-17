@@ -1,6 +1,6 @@
 from operator import itemgetter
 
-from group_by import group_by
+from group_by import group_by, default
 
 def check_even(num):
 	if num % 2 == 0:
@@ -41,3 +41,10 @@ def test_strings():
 	}
 	output = group_by(words, key_func=str.lower)
 	assert output == expected
+
+def test_default_bonus():
+	nums = [1, 2, 1, 3, 2, 1]
+	expected = {1: [1, 1, 1], 2: [2, 2], 3: [3]}
+	output = group_by(nums, key_func=default)
+	assert output == expected
+
