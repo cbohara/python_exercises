@@ -1,9 +1,6 @@
 from collections import defaultdict
 
-def default(x):
-	return x
-
-def group_by(iterable, key_func=default):
+def group_by(iterable, key_func=lambda x: x):
 	d = defaultdict(list)
 	for x in iterable:
 		d[key_func(x)].append(x)
