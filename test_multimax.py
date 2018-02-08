@@ -12,3 +12,13 @@ def test_all_max():
 
 def test_empty():
 	assert multimax([]) == []
+
+def test_iterator():
+	numbers = [1, 4, 2, 4, 3]
+	squares = (n**2 for n in numbers)
+	assert multimax(squares) == [16, 16]
+
+def test_key_function():
+	words = ["alligator", "animal", "apple", "artichoke", "avalanche"]
+	outputs = ["alligator", "artichoke", "avalanche"]
+	assert multimax(words, key=len) == outputs
