@@ -6,7 +6,9 @@ def multimax(iterable, key=None):
 	max_key = None
 	maxs = []
 	for item in iterable:
+		print("item", item)
 		k = key(item)
+		print("k", k)
 		if k == max_key:
 			maxs.append(item)
 		elif not maxs or k > max_key:

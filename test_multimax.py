@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import pytest
 from multimax import multimax
 
 def test_single_max():
@@ -18,16 +19,19 @@ def test_iterator():
 	squares = (n**2 for n in numbers)
 	assert multimax(squares) == [16, 16]
 
+@pytest.mark.bonus1
 def test_key_function():
 	words = ["alligator", "animal", "apple", "artichoke", "avalanche"]
 	outputs = ["alligator", "artichoke", "avalanche"]
 	assert multimax(words, key=len) == outputs
 
+@pytest.mark.bonus2
 def test_lists():
 	inputs = [[0], [1], [], [0, 1], [1]]
 	expected = [[1], [1]]
 	assert multimax(inputs) == expected
 
+@pytest.mark.bonus3
 def test_order_maintained():
 	inputs = [
 		(3, 2),
