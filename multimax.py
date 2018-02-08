@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 
 def multimax(iterable, key=None):
+	if key is None:
+		def key(item): return item
+	max_key = None
 	maxs = []
 	for item in iterable:
-		if not maxs or maxs[0] == item:
+		k = key(item)
+		if k == max_key:
 			maxs.append(item)
-		elif item > maxs[0]:
+		elif not maxs or k > max_key:
 			maxs = [item]
+			max_key = k
 	return maxs

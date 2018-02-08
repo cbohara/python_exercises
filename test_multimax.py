@@ -22,3 +22,24 @@ def test_key_function():
 	words = ["alligator", "animal", "apple", "artichoke", "avalanche"]
 	outputs = ["alligator", "artichoke", "avalanche"]
 	assert multimax(words, key=len) == outputs
+
+def test_lists():
+	inputs = [[0], [1], [], [0, 1], [1]]
+	expected = [[1], [1]]
+	assert multimax(inputs) == expected
+
+def test_order_maintained():
+	inputs = [
+		(3, 2),
+		(2, 1),
+		(3, 2),
+		(2, 0),
+		(3, 2),
+	]
+	expected = [
+		inputs[0],
+		inputs[2],
+		inputs[4],
+	]
+	outputs = multimax(inputs)
+	assert outputs == expected
