@@ -1,15 +1,14 @@
 from datetime import datetime
 
 
-def str_to_dt(date_str):
-	return datetime.strptime(date_str, "%m/%d/%Y")
+def string_to_datetime(date_string):
+	return datetime.strptime(date_string, "%m/%d/%Y")
 
-def get_earliest(date_str1, date_str2):
-	date1 = str_to_dt(date_str1)
-	date2 = str_to_dt(date_str2)
-	if date1 < date2:
-		return date_str1
-	elif date2 < date1:
-		return date_str2
-	else:
-		return date_str1
+def datetime_to_string(datetime_object):
+	return datetime.strftime(datetime_object, "%m/%d/%Y")
+
+def get_earliest(*date_strings):
+	dates = [string_to_datetime(date) for date in date_strings]
+	dates.sort()
+	earliest_date = dates[0]
+	return datetime_to_string(earliest_date)
