@@ -19,7 +19,3 @@ def compact(iterable):
 				output.append(current)
 			previous = current
 	return output
-
-
-print(compact([1, 1, 2, 2, 3, 2]))
-print(compact([1, 1, 1]))
