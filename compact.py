@@ -1,18 +1,21 @@
+import sys
+
+
 def compact(iterable):
 	"""
 	Write a function that accepts an iterable and returns a new iterable with adjacent duplicate values removed
 	:param iterable: iterable with duplicate values
 	:return: iterable with adjacent duplicate values removed
 	"""
+	iterable = iter(iterable)
 	output = []
 	try:
-		previous = iterable[0]
-	except IndexError:
+		previous = next(iterable)
+	except StopIteration:
 		return list()
 	else:
 		output.append(previous)
-		for i in range(1, len(iterable)):
-			current = iterable[i]
+		for current in iterable:
 			if current == previous:
 				continue
 			else:
