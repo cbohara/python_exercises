@@ -1,6 +1,3 @@
-import sys
-
-
 def compact(iterable):
 	"""
 	Write a function that accepts an iterable and returns a new iterable with adjacent duplicate values removed
@@ -8,17 +5,15 @@ def compact(iterable):
 	:return: iterable with adjacent duplicate values removed
 	"""
 	iterable = iter(iterable)
-	output = []
 	try:
 		previous = next(iterable)
 	except StopIteration:
-		return list()
+		return iter([])
 	else:
-		output.append(previous)
+		yield previous
 		for current in iterable:
 			if current == previous:
 				continue
 			else:
-				output.append(current)
+				yield current
 			previous = current
-	return output
