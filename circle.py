@@ -1,21 +1,12 @@
-#!/usr/bin/env python3
 import math
-from functools import total_ordering
 
 
-@total_ordering
-class Circle():
+class Circle:
 	def __init__(self, radius=1):
-		self.radius = radius
+		self._radius = radius
 
 	def __repr__(self):
 		return f'Circle({self.radius})'
-
-	def __eq__(self, other):
-		return self.radius == other.radius
-
-	def __lt__(self, other):
-		return self.radius < other.radius
 
 	@property
 	def radius(self):
@@ -28,13 +19,13 @@ class Circle():
 		self._radius = radius
 
 	@property
-	def area(self):
-		return math.pi * (self.radius ** 2)
-
-	@property
 	def diameter(self):
-		return self.radius * 2
+		return self._radius * 2
 
 	@diameter.setter
 	def diameter(self, diameter):
-		self.radius = diameter / 2
+		self._radius = diameter / 2
+
+	@property
+	def area(self):
+		return math.pi * self._radius ** 2
