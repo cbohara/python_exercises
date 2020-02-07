@@ -11,7 +11,16 @@ def ignore_punctuation_outside(word):
 	Returns:
 		string
 	"""
-	pass
+	first_char = word[0]
+	last_char = word[-1]
+	if not first_char.isalpha() and not last_char.isalpha():
+		return word[1:-1]
+	elif not first_char.isalpha() and last_char.isalpha():
+		return word[1:]
+	elif first_char.isalpha() and not last_char.isalpha():
+		return word[:-1]
+	else:
+		return word
 
 
 def count_words(input_str):
@@ -28,6 +37,7 @@ def count_words(input_str):
 	mapping = {}
 	words = input_str.lower().split()
 	for word in words:
+		word = ignore_punctuation_outside(word)
 		if word not in mapping:
 			mapping[word] = 1
 		elif word in mapping:

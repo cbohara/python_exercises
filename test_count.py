@@ -17,13 +17,13 @@ def test_capitalization():
 	expected = {'oh': 1, 'what': 2, 'a': 2, 'day': 2, 'lovely': 1}
 	assert actual == expected
 
-@pytest.mark.skip(reason='still working on bonus challenge')
+#@pytest.mark.skip(reason='still working on bonus challenge')
 def test_symbols():
 	actual = count_words("¿Te gusta Python?")
 	expected = {'te': 1, 'gusta': 1, 'python': 1}
 	assert actual == expected
 
-@pytest.mark.skip(reason='still working on bonus challenge')
+#@pytest.mark.skip(reason='still working on bonus challenge')
 def test_punctuation_outside_words():
 	actual = count_words("Oh what a day, what a lovely day!")
 	expected = {'oh': 1, 'what': 2, 'a': 2, 'day': 2, 'lovely': 1}
