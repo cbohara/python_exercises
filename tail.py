@@ -1,8 +1,12 @@
-#!/usr/bin/env python3
-from collections import deque
-
 def tail(iterable, n):
-	"""Return the last n items of given iterable."""
 	if n <= 0:
 		return []
-	return list(deque(iterable, maxlen=n))
+
+	print(iterable[-n:])
+
+
+# [3, 4, 5]
+tail([1, 2, 3, 4, 5], 3)
+
+# ['l', 'o']
+tail('hello', 2)
