@@ -1,11 +1,17 @@
-#!/usr/bin/env python3
+def is_anagram(str1, str2):
+	chars1 = [char for char in str1.lower() if char.isalpha()]
+	chars2 = [char for char in str2.lower() if char.isalpha()]
 
-def only_alpha_char(string):
-	return sorted(
-		char
-		for char in string.lower()
-		if char.isalpha()
-	)
+	for char in chars1:
+		if char in chars2:
+			continue
+		else:
+			return False
 
-def is_anagram(string1, string2):
-	return only_alpha_char(string1) == only_alpha_char(string2)
+	for char in chars2:
+		if char in chars1:
+			continue
+		else:
+			return False
+
+	return True
