@@ -2,6 +2,7 @@
 import pytest
 from anagram import is_anagram
 
+@pytest.mark.here
 def test_is_anagram_true_simple():
 	assert is_anagram("tea", "eat") == True
 

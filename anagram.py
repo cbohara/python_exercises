@@ -1,17 +1,15 @@
+def normalized_set(string):
+	return {char for char in string.lower() if char.isalpha()}
+
+
 def is_anagram(str1, str2):
-	chars1 = [char for char in str1.lower() if char.isalpha()]
-	chars2 = [char for char in str2.lower() if char.isalpha()]
+	chars1 = normalized_set(str1)
+	chars2 = normalized_set(str2)
 
-	for char in chars1:
-		if char in chars2:
-			continue
-		else:
-			return False
+	if len(chars1) != len(chars2):
+		return False
 
-	for char in chars2:
-		if char in chars1:
-			continue
-		else:
-			return False
-
-	return True
+	if len(chars1.difference(chars2)) == 0:
+		return True
+	else:
+		return False
