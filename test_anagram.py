@@ -32,3 +32,7 @@ def test_is_anagram_false_ignore_punctuation():
 
 def test_is_anagram_true_ignoring_accent_marks():
 	assert is_anagram("cardiografía", "radiográfica") == True
+
+def test_characters_with_accents():
+	assert is_anagram("Siobhán Donaghy", "Shanghai Nobody") == True
+

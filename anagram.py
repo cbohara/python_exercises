@@ -7,6 +7,7 @@ def remove_accents(string):
 
 def count_letters(string):
 	"""Return sorted list of leetteres in given string."""
+	string = remove_accents(string)
 	return Counter(
 		char
 		for char in string.lower()
