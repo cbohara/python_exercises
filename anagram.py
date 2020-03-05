@@ -1,15 +1,18 @@
-def normalized_set(string):
-	return {char for char in string.lower() if char.isalpha()}
+import unicodedata
+from collections import Counter
 
+def remove_accents(string):
+	"""Return decomposed form of the given string."""
+	return unicodedata.normalize('NFKD', string)
 
-def is_anagram(str1, str2):
-	chars1 = normalized_set(str1)
-	chars2 = normalized_set(str2)
+def count_letters(string):
+	"""Return sorted list of leetteres in given string."""
+	return Counter(
+		char
+		for char in string.lower()
+		if char.isalpha()
+	)
 
-	if len(chars1) != len(chars2):
-		return False
-
-	if len(chars1.difference(chars2)) == 0:
-		return True
-	else:
-		return False
+def is_anagram(word1, word2):
+	"""Return True if the given words are anagrams."""
+	return count_letters(word1) == count_letters(word2)
