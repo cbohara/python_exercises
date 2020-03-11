@@ -1,16 +1,21 @@
-def parse_ranges(num_ranges):
+import re
+
+
+PAIRS_REGEX = re.compile(r'(\d+)-(\d+)')
+
+
+def parse_ranges(ranges_string):
 	"""
 	Transform string containing ranges of numbers into an iterable of those numbers
 
 	Args:
-		num_ranges (string) contains csv string representing ranges of numbers
+		ranges_string (string) contains csv string representing ranges of numbers
 
 	Returns:
 		list of integers
 	"""
-	output = []
-	for num_range in num_ranges.split(','):
-		start, end = [int(x) for x in num_range.split('-')]
-		num_range = list(range(start, end+1))
-		output.extend(num_range)
-	return output
+	return [
+		num
+		for start, end in PAIRS_REGEX.findall(ranges_string)
+		for num in range(int(start), int(end)+1)
+	]
