@@ -14,8 +14,8 @@ def parse_ranges(ranges_string):
 	Returns:
 		list of integers
 	"""
-	return [
+	return (
 		num
 		for start, end in PAIRS_REGEX.findall(ranges_string)
 		for num in range(int(start), int(end)+1)
-	]
+	)
