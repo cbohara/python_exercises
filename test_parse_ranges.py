@@ -14,6 +14,5 @@ def test_bonus_return_generator():
 	assert next(numbers) == 100
 	assert next(numbers) == 101
 
-@pytest.mark.skip(reason='need to implement bonus #2')
 def test_bonus_accept_range_and_individual_numbers():
 	assert list(parse_ranges('0,4-8,20,43-45')) == [0, 4, 5, 6, 7, 8, 20, 43, 44, 45]

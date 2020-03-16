@@ -1,9 +1,3 @@
-import re
-
-
-PAIRS_REGEX = re.compile(r'(\d+)-(\d+)')
-
-
 def parse_ranges(ranges_string):
 	"""
 	Transform string containing ranges of numbers into an iterable of those numbers
@@ -14,8 +8,10 @@ def parse_ranges(ranges_string):
 	Returns:
 		list of integers
 	"""
-	return (
-		num
-		for start, end in PAIRS_REGEX.findall(ranges_string)
-		for num in range(int(start), int(end)+1)
-	)
+	for item in ranges_string.split(','):
+		if item.isdigit():
+			yield int(item)
+		else:
+			start, end = (int(num) for num in item.split('-'))
+			for num in range(start, end+1):
+				yield num
